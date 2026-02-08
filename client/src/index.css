@@ -1,0 +1,280 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    font-family: 'Inter', 'Poppins', 'Roboto', system-ui, sans-serif;
+    @apply transition-theme duration-300;
+    /* Use CSS variables for the global color system */
+    background-color: var(--bg);
+    color: var(--text-primary);
+  }
+
+  /* Root color variables (Light theme default) */
+  :root {
+    /* Palette-based mappings (light) — using user-provided graphite/stormy_teal/yale_blue palettes */
+    --bg: #ffffff; /* white-500 */
+    --surface: #f0f0f0; /* alabaster_grey-800 */
+    --elevated-surface: #ffffff; /* elevated surface (subtle) */
+    --text-primary: #353535; /* graphite-500 */
+    --text-secondary: #868686; /* graphite-700 */
+    --accent: #004e98; /* stormy_teal-500 */
+    --accent-2: #284b63; /* yale_blue-500 */
+    --muted: #d9d9d9; /* alabaster_grey-500 */
+    --border: rgba(53,53,53,0.06); /* soft border using graphite */
+    --glass: rgba(255,255,255,0.6);
+    --shadow: 0 8px 30px rgba(16,24,40,0.04);
+    --glass-border: rgba(53,53,53,0.04);
+    --focus-ring: rgba(60,110,113,0.12); /* stormy_teal hint */
+    --thumb-bg: #ffffff;
+  }
+
+  /* Dark theme variables (softer/lighter dark palette) */
+  .dark, .dark body, .dark :root {
+    /* Use lighter dark shades so UI elements remain legible */
+    --bg: #2b2b2b; /* graphite-400 - soft dark background */
+    --surface: #353535; /* graphite-500 - card surface */
+    --elevated-surface: rgba(255,255,255,0.02);
+    --text-primary: #f7f7f7; /* alabaster_grey-900 - primary text */
+    --text-secondary: #e0e0e0; /* alabaster_grey-600 - secondary text */
+    --accent: #004e98; /* stormy_teal-700 - lighter accent */
+    --muted: #aeaeae; /* graphite-800 - muted */
+    --border: rgba(255,255,255,0.06);
+    --glass: rgba(255,255,255,0.03);
+    --shadow: 0 10px 40px rgba(0,0,0,0.5);
+    --glass-border: rgba(255,255,255,0.04);
+    --focus-ring: rgba(123,182,185,0.16); /* stormy_teal-700 hint */
+    --thumb-bg: #ffffff;
+  }
+
+  /* Smooth transitions for themeable properties */
+  :root, body, .card, .project-card, .btn-primary, .btn-secondary {
+    transition: background-color 280ms ease, color 280ms ease, border-color 280ms ease, box-shadow 280ms ease, transform 280ms ease;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    background-color: var(--accent);
+    color: white;
+    @apply font-medium py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105;
+    box-shadow: var(--shadow);
+  }
+  
+  .btn-secondary {
+    background-color: transparent;
+    border-width: 2px;
+    border-color: var(--border);
+    color: var(--text-primary);
+    @apply font-medium py-3 px-6 rounded-lg transition-all duration-300;
+    box-shadow: none;
+  }
+
+  .dark .btn-secondary {
+    border-color: var(--glass-border);
+    color: var(--text-primary);
+  }
+  
+  .section-padding {
+    @apply py-16 px-4 sm:px-6 lg:px-8;
+  }
+  
+  .container-custom {
+    @apply max-w-7xl mx-auto;
+  }
+  
+  .card {
+    background-color: var(--surface);
+    color: var(--text-primary);
+    border: 1px solid var(--glass-border);
+    border-radius: 0.75rem;
+    box-shadow: var(--shadow);
+    transition: transform 260ms ease, box-shadow 260ms ease, background-color 260ms ease;
+    transform: translateZ(0);
+    will-change: transform;
+    padding: 1rem;
+  }
+  
+  .skill-icon {
+    @apply w-16 h-16 mx-auto mb-4 text-primary-500 dark:text-primary-400;
+  }
+  
+  .project-card {
+    background-color: linear-gradient(180deg, var(--surface), rgba(255,255,255,0.02));
+    background-color: var(--surface);
+    color: var(--text-primary);
+    border: 1px solid var(--glass-border);
+    border-radius: 0.75rem;
+    overflow: hidden;
+    transition: transform 260ms ease, box-shadow 260ms ease, background-color 260ms ease;
+    box-shadow: var(--shadow);
+  }
+
+  /* Theme toggle button */
+  .theme-toggle {
+    @apply relative inline-flex h-6 w-11 items-center rounded-full transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 dark:focus:ring-offset-dark-800;
+  }
+
+  .theme-toggle-light {
+    background-color: var(--glass);
+  }
+
+  .theme-toggle-dark {
+    background-color: var(--accent);
+  }
+
+  .theme-toggle-thumb {
+    @apply inline-block h-4 w-4 transform rounded-full transition-transform duration-300;
+    background-color: var(--thumb-bg);
+  }
+
+  .theme-toggle-thumb-light {
+    @apply translate-x-1;
+  }
+
+  .theme-toggle-thumb-dark {
+    @apply translate-x-6;
+  }
+
+  /* Section backgrounds */
+  .section-light {
+    background-color: var(--surface);
+  }
+
+  .section-gray {
+    background-color: var(--bg);
+  }
+
+  /* Text colors */
+  .text-primary {
+    color: var(--text-primary);
+  }
+
+  .text-secondary {
+    color: var(--text-secondary);
+  }
+
+  .text-accent {
+    color: var(--accent);
+  }
+
+  /* Form elements */
+  .form-input {
+    @apply w-full px-4 py-3 rounded-lg focus:border-transparent transition-all duration-300;
+    background-color: var(--surface);
+    color: var(--text-primary);
+    border: 1px solid var(--glass-border);
+    box-shadow: none;
+  }
+  .form-textarea {
+    @apply form-input resize-none;
+  }
+
+  /* Small reusable chip used for badges and pills */
+  .chip {
+    background-color: var(--elevated-surface);
+    color: var(--text-primary);
+    border: 1px solid var(--glass-border);
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    display: inline-block;
+  }
+
+  /* Navbar scrolled background using theme variables */
+  .nav-scrolled {
+    background-color: var(--surface);
+    border-bottom: 1px solid var(--glass-border);
+    backdrop-filter: blur(6px);
+  }
+
+  /* Muted small badge variant */
+  .badge-muted {
+    background-color: var(--surface);
+    color: var(--text-secondary);
+    border-radius: 9999px;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.75rem;
+    border: 1px solid var(--glass-border);
+    display: inline-block;
+  }
+  
+    /* Skill pill for technology badges */
+    .skill-pill {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.5rem 0.75rem;
+      border-radius: 0.75rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      transition: background-color 200ms ease, color 200ms ease, transform 200ms ease;
+    }
+
+    /* Progress bar track and fill using theme variables */
+    .progress-track {
+      background-color: var(--muted);
+    }
+
+    .progress-fill {
+      background-color: var(--accent);
+    }
+
+    /* Reusable panel/card variant for list items and contact blocks */
+    .panel {
+      background-color: var(--elevated-surface);
+      border: 1px solid var(--glass-border);
+      border-radius: 0.75rem;
+    }
+
+    .icon-circle {
+      width: 3rem;
+      height: 3rem;
+      border-radius: 9999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--glass);
+      color: var(--accent);
+    }
+
+    /* Accent underline used below section headers */
+    .accent-underline {
+      background: var(--accent);
+    }
+
+    /* Accent circular button (used for footer scroll button) */
+    .accent-btn-circle {
+      width: 3rem;
+      height: 3rem;
+      border-radius: 9999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--accent);
+      color: white;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+      transition: transform 180ms ease, box-shadow 180ms ease, opacity 180ms ease;
+    }
+
+    /* Timeline line for education/workflows */
+    .timeline-line {
+      background: var(--muted);
+    }
+
+    .icon-button {
+      background-color: var(--elevated-surface);
+      color: var(--text-primary);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color 160ms ease, color 160ms ease, opacity 160ms ease;
+    }
+}
