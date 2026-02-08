@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { CodeBracketIcon } from '@heroicons/react/24/outline';
 import ProjectCard from './ProjectCard';
 
@@ -16,7 +16,6 @@ const Projects = () => {
     }
   };
 
-  // Projects data
   const allProjects = useMemo(() => ([
     {
       id: 1,
@@ -60,7 +59,6 @@ const Projects = () => {
     <section id="projects" className="section-padding section-light">
       <div className="container-custom">
 
-        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -77,21 +75,17 @@ const Projects = () => {
           </p>
         </motion.div>
 
-        {/* Projects Grid */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
           animate="visible"
           className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
-          <AnimatePresence mode="wait">
-            {allProjects.map((project) => (
-              <ProjectCard key={project.id} project={project} />
-            ))}
-          </AnimatePresence>
+          {allProjects.map((project) => (
+            <ProjectCard key={project.id} project={project} />
+          ))}
         </motion.div>
 
-        {/* CTA */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
