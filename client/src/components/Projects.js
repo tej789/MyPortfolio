@@ -75,9 +75,6 @@ const Projects = () => {
     return allProjects.filter(project => Array.isArray(project.categories) && project.categories.includes(activeFilter));
   }, [activeFilter, allProjects]);
 
-  const handleSetFilter = useCallback((id) => {
-    setActiveFilter(id);
-  }, []);
 
   return (
     <section id="projects" className="section-padding section-light">

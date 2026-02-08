@@ -5,10 +5,7 @@ import { motion } from 'framer-motion';
 import {
   EnvelopeIcon,
   PhoneIcon,
-  MapPinIcon,
-  PaperAirplaneIcon,
-  CheckCircleIcon,
-  ExclamationCircleIcon
+  MapPinIcon
 } from '@heroicons/react/24/outline';
 
 const Contact = () => {
