@@ -1,7 +1,6 @@
 import React, { useState, useMemo, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { CodeBracketIcon } from '@heroicons/react/24/outline';
-import FilterButton from './FilterButton';
 import ProjectCard from './ProjectCard';
 
 const Projects = () => {
@@ -21,17 +20,7 @@ const Projects = () => {
 };
 
 
-  const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.5,
-      },
-    },
-  };
-
+ 
   // immutable source of truth for projects
   const allProjects = useMemo(() => ([
     {

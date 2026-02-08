@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 
 
 import { motion } from 'framer-motion';
@@ -22,7 +22,7 @@ const Contact = () => {
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
-  const formRef = useRef();
+
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -181,8 +181,10 @@ const Contact = () => {
 
             {/* Social Links */}
             <div className="flex space-x-4">
-              <a href="https://www.linkedin.com/in/tej-goti-1470b9288" target="_blank" className="icon-circle">LinkedIn</a>
-              <a href="https://github.com/tej789" target="_blank" className="icon-circle">GitHub</a>
+              <a href="https://www.linkedin.com/in/tej-goti-1470b9288"target="_blank" rel="noopener noreferrer"
+ className="icon-circle">LinkedIn</a>
+              <a href="https://github.com/tej789" target="_blank" rel="noopener noreferrer"
+ className="icon-circle">GitHub</a>
               <a href="mailto:gotitej2005@gmail.com" className="icon-circle">Email</a>
             </div>
           </motion.div>

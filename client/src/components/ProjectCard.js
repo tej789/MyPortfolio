@@ -56,12 +56,13 @@ const ProjectCard = ({ project }) => {
         <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-40 transition-all duration-300 flex items-center justify-center">
           <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex space-x-3">
             {project.github && (
-              <a href={project.github} target="_blank" rel="noreferrer" className="icon-button p-2 rounded-full hover:opacity-90 transition-colors duration-200">
+              <a href={project.github} target="_blank" rel="noopener noreferrer"
+              className="icon-button p-2 rounded-full hover:opacity-90 transition-colors duration-200">
                 <CodeBracketIcon className="w-5 h-5" />
               </a>
             )}
             {project.live && (
-              <a href={project.live} target="_blank" rel="noreferrer" className="icon-button p-2 rounded-full hover:opacity-90 transition-colors duration-200">
+              <a href={project.live} target="_blank" rel="noopener noreferrer" className="icon-button p-2 rounded-full hover:opacity-90 transition-colors duration-200">
                 <GlobeAltIcon className="w-5 h-5" />
               </a>
             )}
@@ -81,13 +82,13 @@ const ProjectCard = ({ project }) => {
 
         <div className="flex gap-3 mt-auto flex gap-3">
           {project.github && (
-            <a href={project.github} target="_blank" rel="noreferrer" className="flex-1 inline-flex items-center justify-center space-x-2 py-2 rounded-lg" style={{background: 'var(--elevated-surface)', color: 'var(--text-primary)', border: '1px solid var(--glass-border)'}}>
+            <a href={project.github} target="_blank" rel="noopener noreferrer" className="flex-1 inline-flex items-center justify-center space-x-2 py-2 rounded-lg" style={{background: 'var(--elevated-surface)', color: 'var(--text-primary)', border: '1px solid var(--glass-border)'}}>
               <CodeBracketIcon className="w-4 h-4" />
               <span>Code</span>
             </a>
           )}
           {project.live && (
-            <a href={project.live} target="_blank" rel="noreferrer" className="flex-1 inline-flex items-center justify-center space-x-2 py-2 rounded-lg" style={{background: 'var(--accent)', color: '#fff'}}>
+            <a href={project.live} target="_blank" rel="noopener noreferrer" className="flex-1 inline-flex items-center justify-center space-x-2 py-2 rounded-lg" style={{background: 'var(--accent)', color: '#fff'}}>
               <EyeIcon className="w-4 h-4" />
               <span>Live Demo</span>
             </a>
