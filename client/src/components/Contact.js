@@ -65,7 +65,10 @@ const Contact = () => {
     setIsSubmitting(true);
     setSubmitStatus(null);
   
-    const API_URL = "http://localhost:5000/api/contact";
+    const API_URL =
+    process.env.NODE_ENV === "development"
+      ? "http://localhost:5000/api/contact"
+      : "https://portfolio-backend-pgi8.onrender.com/api/contact";
   
     try {
       const res = await fetch(API_URL, {
