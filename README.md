@@ -8,6 +8,7 @@ The portfolio highlights my work as a MERN Stack Developer, including real-world
 
 🔗 Portfolio:
 my-portfolio-ruby-sigma-26.vercel.app
+http://tejgoti.vercel.app/
 
 🔗 Backend API:
 https://portfolio-backend-pgi8.onrender.com/
