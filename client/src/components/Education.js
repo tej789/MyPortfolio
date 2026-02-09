@@ -33,7 +33,7 @@ const Education = () => {
       duration: '2023 - 2027',
       description:
         'Focused on software development, data structures, algorithms, and full-stack web development. Built academic and personal projects using MERN stack technologies and modern development tools.',
-      gpa: '8.3/10',
+        gpa: '8.3/10',
       achievements: [
         'Developed MERN stack web applications',
         'Completed NPTEL Data Structures & Algorithms certification',
