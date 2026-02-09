@@ -27,7 +27,7 @@ const Hero = ({ scrollToSection }) => {
 
   const handleDownloadResume = () => {
     // Replace with your actual resume file path
-    const resumeUrl = '/resume.pdf'; // Add your resume file to public folder
+    const resumeUrl = '/RESUME.pdf'; // Add your resume file to public folder
     const link = document.createElement('a');
     link.href = resumeUrl;
   link.download = 'Tej_Goti_Resume.pdf';
