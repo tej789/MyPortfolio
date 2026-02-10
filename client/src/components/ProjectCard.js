@@ -71,7 +71,12 @@ const ProjectCard = ({ project }) => {
       </div>
 
       <div className="p-6 flex flex-col flex-1">
-        <h3 id={`project-${project.id}-title`} className="text-xl font-bold text-dusk_blue-900 mb-2">{project.title}</h3>
+      <h3
+  id={`project-${project.id}-title`}
+  className="text-xl font-bold text-dusk_blue-900 dark:text-white mb-2"
+>
+  {project.title}
+</h3>
         <p className="text-dusk_blue-900 dark:text-grey_olive-600 mb-4 leading-relaxed line-clamp-3">{project.description}</p>
 
         <div className="flex flex-wrap gap-2 mb-4">
