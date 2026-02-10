@@ -77,7 +77,9 @@ const ProjectCard = ({ project }) => {
 >
   {project.title}
 </h3>
-        <p className="text-dusk_blue-900 dark:text-grey_olive-600 mb-4 leading-relaxed line-clamp-3">{project.description}</p>
+<p className="text-dusk_blue-900 dark:text-gray-300 mb-4 leading-relaxed line-clamp-3">
+  {project.description}
+</p>
 
         <div className="flex flex-wrap gap-2 mb-4">
           {project.technologies.map((tech, i) => (
