@@ -35,17 +35,18 @@ const Navbar = ({ activeSection, scrollToSection }) => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          scrolled 
-            ? 'nav-scrolled shadow-lg' 
-            : 'bg-transparent'
-        }`}
+        scrolled
+          ? 'nav-scrolled shadow-lg'
+          : 'bg-transparent'
+      }`}
     >
       <div className="container-custom px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
+
           {/* Logo */}
           <motion.div
             whileHover={{ scale: 1.05 }}
-            className="text-2xl font-bold text-dusk_blue-700 dark:text-dusk_blue-300"
+            className="text-2xl font-bold text-dusk_blue-700 dark:text-white"
           >
             Portfolio
           </motion.div>
@@ -58,15 +59,16 @@ const Navbar = ({ activeSection, scrollToSection }) => {
                 onClick={() => handleNavClick(item.id)}
                 className={`relative px-3 py-2 text-sm font-medium transition-colors duration-200 ${
                   activeSection === item.id
-                    ? 'text-dusk_blue-600 dark:text-dusk_blue-300'
-                    : 'text-dusk_blue-900 hover:text-steel_blue-500 dark:hover:text-icy_blue-300'
+                    ? 'text-dusk_blue-600 dark:text-white'
+                    : 'text-dusk_blue-900 dark:text-gray-300 hover:text-steel_blue-500 dark:hover:text-white'
                 }`}
               >
                 {item.label}
+
                 {activeSection === item.id && (
                   <motion.div
                     layoutId="activeTab"
-                    className="absolute bottom-0 left-0 right-0 h-0.5 bg-dusk_blue-500 dark:bg-dusk_blue-400"
+                    className="absolute bottom-0 left-0 right-0 h-0.5 bg-dusk_blue-500 dark:bg-white"
                   />
                 )}
               </button>
@@ -76,12 +78,12 @@ const Navbar = ({ activeSection, scrollToSection }) => {
           </div>
 
           {/* Mobile menu button */}
-            <div className="md:hidden flex items-center space-x-2">
+          <div className="md:hidden flex items-center space-x-2">
             <ThemeToggle className="p-0" />
 
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-dusk_blue-900 hover:text-steel_blue-500 dark:hover:text-icy_blue-300 focus:outline-none"
+              className="text-dusk_blue-900 dark:text-white hover:text-steel_blue-500 dark:hover:text-white focus:outline-none"
             >
               {isOpen ? (
                 <XMarkIcon className="h-6 w-6" />
@@ -107,8 +109,8 @@ const Navbar = ({ activeSection, scrollToSection }) => {
                   onClick={() => handleNavClick(item.id)}
                   className={`block w-full text-left px-3 py-2 text-base font-medium rounded-md transition-colors duration-200 ${
                     activeSection === item.id
-                      ? 'text-dusk_blue-600 dark:text-dusk_blue-300 bg-platinum-100 dark:bg-platinum-700'
-                      : 'text-dusk_blue-900 hover:text-steel_blue-500 dark:hover:text-icy_blue-300 hover:shadow-sm'
+                      ? 'text-dusk_blue-600 dark:text-white bg-platinum-100 dark:bg-gray-700'
+                      : 'text-dusk_blue-900 dark:text-gray-300 hover:text-steel_blue-500 dark:hover:text-white hover:shadow-sm'
                   }`}
                 >
                   {item.label}
@@ -122,4 +124,4 @@ const Navbar = ({ activeSection, scrollToSection }) => {
   );
 };
 
-export default Navbar; 
+export default Navbar;
