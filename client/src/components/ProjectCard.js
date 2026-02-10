@@ -42,7 +42,8 @@ const ProjectCard = ({ project }) => {
         initial="hidden"
         animate="visible"
         exit="exit"
-        className="project-card group flex flex-col h-full"
+        className="project-card group flex flex-col h-full bg-gray-800/80 dark:bg-gray-800 border border-gray-700 hover:border-gray-600 transition-all duration-300"
+
         >
 
       <div className="relative h-48 flex items-center justify-center overflow-hidden" style={{background: 'linear-gradient(180deg, rgba(0,0,0,0.02), transparent)'}}>
