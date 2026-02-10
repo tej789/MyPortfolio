@@ -41,7 +41,18 @@ const Projects = () => {
       live: 'https://car-rental-omega-pearl.vercel.app/',
       featured: true
     },
-
+    {
+      id: 3,
+      title: 'BlogNest',
+      description:
+        'A full-stack MERN blogging platform with authentication and role-based access.',
+      image: '📝',
+      categories: ['web', 'mern'],
+      technologies: ['React', 'Node.js', 'Express', 'MongoDB', 'JWT', 'Cloudinary'],
+      github: 'https://github.com/tej789/BlogNest',
+      live: null,
+      featured: false
+    }
   ]), []);
 
   return (
