@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-
-
 import { motion } from 'framer-motion';
 import {
   EnvelopeIcon,
@@ -20,7 +18,6 @@ const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
 
-
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: { opacity: 1, transition: { staggerChildren: 0.2 } }
@@ -32,7 +29,6 @@ const Contact = () => {
   };
 
   const handleInputChange = (e) => {
-    console.log("Submit triggered");
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
     if (errors[name]) setErrors(prev => ({ ...prev, [name]: '' }));
@@ -40,7 +36,6 @@ const Contact = () => {
 
   const validateForm = () => {
     const newErrors = {};
-
     if (!formData.name.trim()) newErrors.name = 'Name is required';
     if (!formData.email.trim()) newErrors.email = 'Email is required';
     else if (!/\S+@\S+\.\S+/.test(formData.email))
@@ -53,33 +48,29 @@ const Contact = () => {
 
     return Object.keys(newErrors).length === 0;
   };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Submit triggered");
-  
     if (!validateForm()) return;
-  
+
     setIsSubmitting(true);
     setSubmitStatus(null);
-  
+
     const API_URL =
-    process.env.NODE_ENV === "development"
-      ? "http://localhost:5000/api/contact"
-      : "https://portfolio-backend-pgi8.onrender.com/api/contact";
-  
+      process.env.NODE_ENV === "development"
+        ? "http://localhost:5000/api/contact"
+        : "https://portfolio-backend-pgi8.onrender.com/api/contact";
+
     try {
       const res = await fetch(API_URL, {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
-  
+
       const data = await res.json();
-  
       if (!res.ok) throw new Error(data.message);
-  
+
       setSubmitStatus("success");
       setFormData({
         name: "",
@@ -87,16 +78,13 @@ const Contact = () => {
         subject: "",
         message: "",
       });
-  
+
     } catch (error) {
-      console.error("Submit error:", error);
       setSubmitStatus("error");
     } finally {
       setIsSubmitting(false);
     }
   };
-  
-  
 
   const contactInfo = [
     {
@@ -121,15 +109,12 @@ const Contact = () => {
 
   return (
     <section
-    id="contact"
-    className="section-padding section-light pb-48"
-    style={{ position: "relative", zIndex: 1 }}
-  >
-  
-  
+      id="contact"
+      className="section-padding section-light pb-48"
+      style={{ position: "relative", zIndex: 1 }}
+    >
       <div className="container-custom">
 
-        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -158,7 +143,12 @@ const Contact = () => {
 
             <div className="space-y-6">
               {contactInfo.map((info, i) => (
-                <div key={i} className="flex items-center space-x-4 panel p-4">
+                <div
+                  key={i}
+                  className="flex items-center space-x-4 panel p-4
+                             bg-white dark:bg-gray-800
+                             text-gray-900 dark:text-gray-100"
+                >
                   <div className="icon-circle">
                     <info.icon className="w-6 h-6" />
                   </div>
@@ -176,35 +166,49 @@ const Contact = () => {
               ))}
             </div>
 
-            {/* Social Links */}
             <div className="flex space-x-4">
-              <a href="https://www.linkedin.com/in/tej-goti-1470b9288"target="_blank" rel="noopener noreferrer"
- className="icon-circle">LinkedIn</a>
-              <a href="https://github.com/tej789" target="_blank" rel="noopener noreferrer"
- className="icon-circle">GitHub</a>
-              <a href="mailto:gotitej2005@gmail.com" className="icon-circle">Email</a>
+              <a href="https://www.linkedin.com/in/tej-goti-1470b9288"
+                 target="_blank" rel="noopener noreferrer"
+                 className="icon-circle">LinkedIn</a>
+
+              <a href="https://github.com/tej789"
+                 target="_blank" rel="noopener noreferrer"
+                 className="icon-circle">GitHub</a>
+
+              <a href="mailto:gotitej2005@gmail.com"
+                 className="icon-circle">Email</a>
             </div>
           </motion.div>
 
           {/* Form */}
-          <motion.div
-  variants={itemVariants}
-  style={{ position: "relative", zIndex: 10 }}
->
-
-            <div className="card p-8">
+          <motion.div variants={itemVariants} style={{ position: "relative", zIndex: 10 }}>
+            <div className="card p-8 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100">
               <h3 className="text-2xl font-bold text-primary mb-6">Send Message</h3>
 
-              <form onSubmit={handleSubmit}className="space-y-6 relative z-10"
->
+              <form onSubmit={handleSubmit} className="space-y-6 relative z-10">
 
-                <input name="name" value={formData.name} onChange={handleInputChange} placeholder="Your Name" className="form-input" />
-                <input name="email" value={formData.email} onChange={handleInputChange} placeholder="Your Email" className="form-input" />
-                <input name="subject" value={formData.subject} onChange={handleInputChange} placeholder="Subject" className="form-input" />
-                <textarea name="message" value={formData.message} onChange={handleInputChange} rows="5" placeholder="Your Message" className="form-textarea" />
+                <input name="name" value={formData.name} onChange={handleInputChange}
+                  placeholder="Your Name"
+                  className="form-input bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 border border-gray-300 dark:border-gray-700" />
+
+                <input name="email" value={formData.email} onChange={handleInputChange}
+                  placeholder="Your Email"
+                  className="form-input bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 border border-gray-300 dark:border-gray-700" />
+
+                <input name="subject" value={formData.subject} onChange={handleInputChange}
+                  placeholder="Subject"
+                  className="form-input bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 border border-gray-300 dark:border-gray-700" />
+
+                <textarea name="message" value={formData.message}
+                  onChange={handleInputChange} rows="5"
+                  placeholder="Your Message"
+                  className="form-textarea bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 border border-gray-300 dark:border-gray-700" />
 
                 {submitStatus && (
-                  <div className={`p-4 rounded ${submitStatus === 'success' ? 'bg-green-100' : 'bg-red-100'}`}>
+                  <div className={`p-4 rounded text-gray-900 dark:text-gray-100
+                    ${submitStatus === 'success'
+                      ? 'bg-green-100 dark:bg-green-900'
+                      : 'bg-red-100 dark:bg-red-900'}`}>
                     {submitStatus === 'success'
                       ? 'Message sent successfully!'
                       : 'Failed to send. Email me at gotitej2005@gmail.com'}
@@ -214,9 +218,11 @@ const Contact = () => {
                 <button type="submit" disabled={isSubmitting} className="btn-primary w-full">
                   {isSubmitting ? 'Sending...' : 'Send Message'}
                 </button>
+
               </form>
             </div>
           </motion.div>
+
         </motion.div>
       </div>
     </section>
