@@ -101,8 +101,7 @@ const Navbar = ({ activeSection, scrollToSection }) => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             className="md:hidden nav-scrolled"
-          >
-            
+          >  
             <div className="px-2 pt-2 pb-3 space-y-1">
               {navItems.map((item) => (
                 <button
