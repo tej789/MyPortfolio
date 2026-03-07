@@ -21,7 +21,7 @@ const Projects = () => {
       id: 1,
       title: 'Local Crisis HelpChain',
       description:
-        'A MERN stack emergency help platform connecting people during crisis situations.',
+        'A MERN stack emergency help platform connecting needy people with volunteer and NGO during crisis situations.',
       image: '🚨',
       categories: ['web', 'mern'],
       technologies: ['React', 'Node.js', 'Express', 'MongoDB'],
