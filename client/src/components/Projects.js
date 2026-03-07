@@ -31,7 +31,7 @@ const Projects = () => {
     },
     {
       id: 2,
-      title: 'Car Rental System',
+      title: 'CarRental',
       description:
         'A responsive car rental platform allowing users to browse and book cars.',
       image: '🚗',
