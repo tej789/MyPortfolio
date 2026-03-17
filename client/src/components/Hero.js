@@ -160,7 +160,7 @@ const Hero = ({ scrollToSection }) => {
                 rel="noreferrer"
                 aria-label="GitHub profile"
                 title="View my code"
-                className="p-3 rounded-full bg-white/10 dark:bg-white/10 text-white/90 hover:text-[#00aaff] shadow-md hover:shadow-[0_0_18px_rgba(0,170,255,0.8)] transform hover:scale-[1.18] transition duration-300 ease-out backdrop-blur-sm"
+                className="p-3 rounded-full bg-white dark:bg-white/10 text-primary-600 dark:text-white/90 hover:text-[#00aaff] shadow-md hover:shadow-[0_0_18px_rgba(0,170,255,0.8)] transform hover:scale-[1.18] transition duration-300 ease-out backdrop-blur-sm"
               >
                 <GitHubIcon className="w-6 h-6" />
               </a>
@@ -170,7 +170,7 @@ const Hero = ({ scrollToSection }) => {
                 rel="noreferrer"
                 aria-label="LinkedIn profile"
                 title="Connect with me"
-                className="p-3 rounded-full bg-white/10 dark:bg-white/10 text-white/90 hover:text-[#00aaff] shadow-md hover:shadow-[0_0_18px_rgba(0,170,255,0.8)] transform hover:scale-[1.18] transition duration-300 ease-out backdrop-blur-sm"
+                className="p-3 rounded-full bg-white dark:bg-white/10 text-primary-600 dark:text-white/90 hover:text-[#00aaff] shadow-md hover:shadow-[0_0_18px_rgba(0,170,255,0.8)] transform hover:scale-[1.18] transition duration-300 ease-out backdrop-blur-sm"
               >
                 <LinkedInIcon className="w-6 h-6" />
               </a>
