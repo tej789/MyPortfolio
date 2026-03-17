@@ -43,8 +43,8 @@ const Contact = () => {
 
     if (!formData.subject.trim()) newErrors.subject = 'Subject is required';
     if (!formData.message.trim()) newErrors.message = 'Message is required';
-    else if (formData.message.length < 10)
-      newErrors.message = 'Message must be at least 10 characters';
+    else if (formData.message.length < 2)
+      newErrors.message = 'Message must be at least 2 characters';
 
     return Object.keys(newErrors).length === 0;
   };
@@ -78,6 +78,9 @@ const Contact = () => {
         subject: "",
         message: "",
       });
+
+      // Auto-hide success message after a short delay
+      setTimeout(() => setSubmitStatus(null), 4000);
 
     } catch (error) {
       setSubmitStatus("error");
@@ -205,13 +208,18 @@ const Contact = () => {
                   className="form-textarea bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 border border-gray-300 dark:border-gray-700" />
 
                 {submitStatus && (
-                  <div className={`p-4 rounded text-gray-900 dark:text-gray-100
+                  <div
+                    className={`flex items-center gap-3 p-3 rounded-lg text-sm md:text-base text-center md:text-left font-medium text-gray-900 dark:text-gray-100 shadow-sm transition-opacity duration-300
                     ${submitStatus === 'success'
-                      ? 'bg-green-100 dark:bg-green-900'
-                      : 'bg-red-100 dark:bg-red-900'}`}>
-                    {submitStatus === 'success'
-                      ? 'Message sent successfully!'
-                      : 'Failed to send. Email me at gotitej2005@gmail.com'}
+                      ? 'bg-emerald-500/95 dark:bg-emerald-500/90 border border-emerald-400 text-white'
+                      : 'bg-red-500/95 dark:bg-red-500/90 border border-red-400 text-white'}`}
+                  >
+                    <span className="inline-block w-2 h-2 rounded-full bg-white/90" />
+                    <span>
+                      {submitStatus === 'success'
+                        ? 'Message sent successfully!'
+                        : 'Failed to send. You can email me at gotitej2005@gmail.com'}
+                    </span>
                   </div>
                 )}
 

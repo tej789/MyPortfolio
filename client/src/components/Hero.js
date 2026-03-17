@@ -60,7 +60,7 @@ const Hero = ({ scrollToSection }) => {
   };
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-50 to-gray-100 dark:from-dark-900 dark:to-dark-800 relative overflow-hidden">
+    <section id="home" className="min-h-screen flex items-start md:items-center justify-center pt-16 md:pt-0 bg-gradient-to-br from-gray-50 to-gray-100 dark:from-dark-900 dark:to-dark-800 relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5 dark:opacity-10">
         <div className="absolute top-20 left-20 w-72 h-72 bg-primary-300 dark:bg-primary-400 rounded-full mix-blend-multiply filter blur-xl animate-pulse"></div>
@@ -73,99 +73,124 @@ const Hero = ({ scrollToSection }) => {
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="text-center max-w-4xl mx-auto"
+          className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-10 md:gap-16"
         >
-          {/* Greeting */}
-          <motion.div variants={itemVariants} className="mb-4">
-            <span className="text-primary-500 dark:text-primary-400 font-medium">Hello, I'm</span>
-          </motion.div>
-
-          {/* Name */}
-          <motion.h1
-            variants={itemVariants}
-            className="text-5xl md:text-7xl font-bold text-primary mb-6"
-          >
-            <span className="text-primary-500 dark:text-primary-400">Tej Goti</span>
-          </motion.h1>
-
-          {/* Title */}
-          <motion.h2
-            variants={itemVariants}
-            className="text-2xl md:text-3xl font-semibold text-secondary mb-8"
-          >
-            MERN Stack Developer
-          </motion.h2>
-
-          {/* Description */}
-          <motion.p
-            variants={itemVariants}
-            className="text-lg md:text-xl text-secondary mb-12 max-w-2xl mx-auto leading-relaxed"
-          >
-            Passionate full-stack developer specializing in modern web technologies. 
-            I create scalable, user-friendly applications with clean code and innovative solutions.
-          </motion.p>
-
-          {/* CTA Buttons */}
+          {/* Profile Image */}
           <motion.div
             variants={itemVariants}
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-3"
+            className="order-1 md:order-2 flex-1 flex justify-center md:justify-end mb-8 md:mb-0"
           >
-            <button
-              onClick={handleDownloadResume}
-              className="btn-primary inline-flex items-center space-x-2"
+            <motion.div
+              whileHover={{ scale: 1.05, transition: { duration: 0.3, ease: 'easeOut' } }}
+              animate={{ y: [0, -8, 0] }}
+              transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
+              className="relative w-[176px] h-[176px] md:w-[260px] md:h-[260px] rounded-full p-[3px] bg-gradient-to-tr from-cyan-400 via-sky-500 to-blue-600 shadow-[0_0_30px_rgba(0,170,255,0.35)]"
             >
-              <DocumentArrowDownIcon className="w-5 h-5" />
-              <span>Download Resume</span>
-            </button>
-            <button
-              onClick={() => scrollToSection('projects')}
-              className="btn-secondary"
-            >
-              View Projects
-            </button>
+              <div className="relative w-full h-full rounded-full overflow-hidden bg-dark-800 shadow-[0_0_25px_rgba(0,0,0,0.45)]">
+                <img
+                  src="/profile.jpg"
+                  alt="Profile"
+                  className="w-full h-full object-cover"
+                  style={{ objectPosition: '50% 30%' }}
+                />
+              </div>
+            </motion.div>
           </motion.div>
 
-          {/* Social Links */}
-          <motion.div
-            variants={itemVariants}
-            className="flex justify-center gap-4 mb-16"
-          >
-            <a
-              href="https://github.com/tej789"
-              target="_blank"
-              rel="noreferrer"
-              aria-label="GitHub profile"
-              title="View my code"
-              className="p-3 rounded-full bg-white/10 dark:bg-white/10 text-white/90 hover:text-[#00aaff] shadow-md hover:shadow-[0_0_18px_rgba(0,170,255,0.8)] transform hover:scale-[1.18] transition duration-300 ease-out backdrop-blur-sm"
-            >
-              <GitHubIcon className="w-6 h-6" />
-            </a>
-            <a
-              href="https://www.linkedin.com/"
-              target="_blank"
-              rel="noreferrer"
-              aria-label="LinkedIn profile"
-              title="Connect with me"
-              className="p-3 rounded-full bg-white/10 dark:bg-white/10 text-white/90 hover:text-[#00aaff] shadow-md hover:shadow-[0_0_18px_rgba(0,170,255,0.8)] transform hover:scale-[1.18] transition duration-300 ease-out backdrop-blur-sm"
-            >
-              <LinkedInIcon className="w-6 h-6" />
-            </a>
-          </motion.div>
+          {/* Text Content */}
+          <div className="order-2 md:order-1 flex-1 text-center md:text-left">
+            {/* Greeting */}
+            <motion.div variants={itemVariants} className="mb-2 md:mb-4">
+              <span className="text-primary-500 dark:text-primary-400 font-medium">Hello, I'm</span>
+            </motion.div>
 
-          {/* Scroll Indicator */}
-          <motion.div
-            variants={itemVariants}
-            className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-          >
-            <motion.button
-              onClick={() => scrollToSection('about')}
-              className="text-secondary hover:text-primary-500 dark:hover:text-primary-400 transition-colors duration-300"
-              animate={{ y: [0, 10, 0] }}
-              transition={{ duration: 2, repeat: Infinity }}
+            {/* Name */}
+            <motion.h1
+              variants={itemVariants}
+              className="text-3xl md:text-6xl font-bold text-primary mb-3 md:mb-6 leading-tight"
             >
-              <ArrowDownIcon className="h-8 w-8" />
-            </motion.button>
-          </motion.div>
+              <span className="text-primary-500 dark:text-primary-400">Tej Goti</span>
+            </motion.h1>
+
+            {/* Title */}
+            <motion.h2
+              variants={itemVariants}
+              className="text-lg md:text-2xl font-semibold text-secondary mb-4 md:mb-6"
+            >
+              MERN Stack Developer
+            </motion.h2>
+
+            {/* Description */}
+            <motion.p
+              variants={itemVariants}
+              className="text-sm md:text-base text-secondary mb-6 md:mb-10 max-w-2xl mx-auto md:mx-0 leading-relaxed"
+            >
+              Passionate full-stack developer specializing in modern web technologies.
+              I create scalable, user-friendly applications with clean code and innovative solutions.
+            </motion.p>
+
+            {/* CTA Buttons */}
+            <motion.div
+              variants={itemVariants}
+              className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start items-center mb-3"
+            >
+              <button
+                onClick={handleDownloadResume}
+                className="btn-primary inline-flex items-center space-x-2"
+              >
+                <DocumentArrowDownIcon className="w-5 h-5" />
+                <span>Download Resume</span>
+              </button>
+              <button
+                onClick={() => scrollToSection('projects')}
+                className="btn-secondary"
+              >
+                View Projects
+              </button>
+            </motion.div>
+
+            {/* Social Links */}
+            <motion.div
+              variants={itemVariants}
+              className="flex justify-center md:justify-start gap-4 mb-16"
+            >
+              <a
+                href="https://github.com/tej789"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="GitHub profile"
+                title="View my code"
+                className="p-3 rounded-full bg-white/10 dark:bg-white/10 text-white/90 hover:text-[#00aaff] shadow-md hover:shadow-[0_0_18px_rgba(0,170,255,0.8)] transform hover:scale-[1.18] transition duration-300 ease-out backdrop-blur-sm"
+              >
+                <GitHubIcon className="w-6 h-6" />
+              </a>
+              <a
+                href="https://www.linkedin.com/"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="LinkedIn profile"
+                title="Connect with me"
+                className="p-3 rounded-full bg-white/10 dark:bg-white/10 text-white/90 hover:text-[#00aaff] shadow-md hover:shadow-[0_0_18px_rgba(0,170,255,0.8)] transform hover:scale-[1.18] transition duration-300 ease-out backdrop-blur-sm"
+              >
+                <LinkedInIcon className="w-6 h-6" />
+              </a>
+            </motion.div>
+          </div>
+        </motion.div>
+
+        {/* Scroll Indicator */}
+        <motion.div
+          variants={itemVariants}
+          className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+        >
+          <motion.button
+            onClick={() => scrollToSection('about')}
+            className="text-secondary hover:text-primary-500 dark:hover:text-primary-400 transition-colors duration-300"
+            animate={{ y: [0, 10, 0] }}
+            transition={{ duration: 2, repeat: Infinity }}
+          >
+            <ArrowDownIcon className="h-8 w-8" />
+          </motion.button>
         </motion.div>
       </div>
     </section>
