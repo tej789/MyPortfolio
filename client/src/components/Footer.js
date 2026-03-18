@@ -82,7 +82,7 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div className="text-center md:text-left">
-            <h4 className="text-lg font-semibold text-white mb-6">Quick Links</h4>
+            <h4 className="text-lg font-semibold text-primary mb-6">Quick Links</h4>
 
             <ul className="space-y-3">
               {['home', 'about', 'skills', 'projects', 'education', 'contact'].map((link) => (
@@ -100,7 +100,7 @@ const Footer = () => {
 
           {/* Contact Info */}
           <div className="text-center md:text-left">
-            <h4 className="text-lg font-semibold text-white mb-6">Contact Info</h4>
+            <h4 className="text-lg font-semibold text-primary mb-6">Contact Info</h4>
 
             <div className="space-y-4">
 
