@@ -186,6 +186,17 @@
     font-size: 0.75rem;
     font-weight: 600;
     display: inline-block;
+    cursor: default;
+    transition: background-color 200ms ease, color 200ms ease, border-color 200ms ease,
+                box-shadow 220ms ease, transform 200ms ease;
+  }
+
+  .chip:hover {
+    background-color: var(--accent);
+    color: #ffffff;
+    border-color: transparent;
+    box-shadow: 0 10px 25px rgba(0, 78, 152, 0.35);
+    transform: translateY(-1px);
   }
 
   /* Navbar scrolled background using theme variables */

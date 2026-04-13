@@ -19,6 +19,18 @@ const Projects = () => {
   const allProjects = useMemo(() => ([
     {
       id: 1,
+      title: 'TalentIQ',
+      description:
+        'A full-stack MERN platform for conducting technical interviews with real-time video sessions, collaborative coding, multi-language code execution, automated test case validation, and detailed performance analytics for accurate candidate evaluation.',
+      image: '🧠',
+      categories: ['web', 'mern'],
+      technologies: ['React', 'Node.js', 'Express.js', 'MongoDB', 'Tailwind CSS', 'Clerk', 'Stream.io', 'Monaco Editor', 'JWT'],
+      github: 'https://github.com/tej789/TalentIQ',
+      live: 'https://talent-iq-blue.vercel.app/',
+      featured: true
+    },
+    {
+      id: 2,
       title: 'Local Crisis HelpChain',
       description:
         'A MERN stack emergency help platform connecting needy people with volunteer and NGO during crisis situations.',
@@ -30,7 +42,7 @@ const Projects = () => {
       featured: true
     },
     {
-      id: 2,
+      id: 3,
       title: 'CarRental',
       description:
         'A responsive car rental platform allowing users to browse and book cars.',
@@ -42,7 +54,7 @@ const Projects = () => {
       featured: true
     },
     {
-      id: 3,
+      id: 4,
       title: 'BlogNest',
       description:
         'A full-stack MERN blogging platform with authentication and role-based access.',

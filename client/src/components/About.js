@@ -92,7 +92,7 @@ const About = () => {
                 ].map((tech, index) => (
                   <div
                     key={index}
-                    className="chip hover:text-accent transition-colors duration-200 text-center"
+                    className="chip text-center"
                   >
                     {tech}
                   </div>

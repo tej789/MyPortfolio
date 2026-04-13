@@ -108,7 +108,7 @@ const Education = () => {
               <motion.div
                 key={education.id}
                 variants={itemVariants}
-                className="card relative"
+                className="relative group rounded-2xl border border-gray-200/80 dark:border-gray-800/80 bg-white/95 dark:bg-gray-900/95 shadow-md hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300 p-6 md:p-8 backdrop-blur"
               >
                 {/* Timeline Line */}
                 {index < educationData.length - 1 && (
@@ -118,15 +118,15 @@ const Education = () => {
                 <div className="grid lg:grid-cols-3 gap-6">
                   {/* Left Column - Icon and Timeline */}
                   <div className="flex items-start space-x-4">
-                    <div className="icon-circle flex-shrink-0">
+                    <div className="flex-shrink-0 w-11 h-11 rounded-2xl bg-indigo-600/10 dark:bg-indigo-500/15 flex items-center justify-center text-indigo-600 dark:text-indigo-300 ring-1 ring-indigo-500/20">
                       <AcademicCapIcon className="w-6 h-6" />
                     </div>
                     <div className="flex-1">
-                      <div className="flex items-center space-x-2 text-sm text-secondary mb-1">
+                      <div className="flex items-center space-x-2 text-xs md:text-sm text-secondary mb-1">
                         <CalendarIcon className="w-4 h-4" />
                         <span>{education.duration}</span>
                       </div>
-                      <div className="flex items-center space-x-2 text-sm text-secondary">
+                      <div className="flex items-center space-x-2 text-xs md:text-sm text-secondary">
                         <MapPinIcon className="w-4 h-4" />
                         <span>{education.location}</span>
                       </div>
@@ -135,10 +135,10 @@ const Education = () => {
 
                   {/* Middle Column - Degree and Institution */}
                   <div className="lg:col-span-2">
-                    <h4 className="text-xl font-bold text-primary mb-2">
+                    <h4 className="text-xl font-semibold text-primary mb-1">
                       {education.degree}
                     </h4>
-                    <p className="text-lg font-semibold text-accent mb-3">
+                    <p className="text-base md:text-lg font-semibold text-accent mb-3">
                       {education.institution}
                     </p>
                     <p className="text-secondary mb-4 leading-relaxed">
@@ -146,12 +146,14 @@ const Education = () => {
                     </p>
                     
                     {/* GPA */}
-                    <div className="chip mb-4">GPA: {education.gpa}</div>
+                    <div className="inline-flex items-center rounded-full border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 px-3 py-1 text-xs font-semibold text-secondary mb-4">
+                      GPA: {education.gpa}
+                    </div>
 
                     {/* Achievements */}
                     <div className="space-y-2">
-                      <h5 className="font-semibold text-primary">Key Achievements:</h5>
-                      <ul className="list-disc list-inside space-y-1 text-secondary">
+                      <h5 className="font-semibold text-primary mb-1">Key Achievements:</h5>
+                      <ul className="list-disc list-inside space-y-1 text-secondary text-sm">
                         {education.achievements.map((achievement, idx) => (
                           <li key={idx}>{achievement}</li>
                         ))}

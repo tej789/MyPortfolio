@@ -148,17 +148,20 @@ const Contact = () => {
               {contactInfo.map((info, i) => (
                 <div
                   key={i}
-                  className="flex items-center space-x-4 panel p-4
-                             bg-white dark:bg-gray-800
-                             text-gray-900 dark:text-gray-100"
+                  className="group flex items-center space-x-4 panel p-4 rounded-2xl
+                             bg-white/95 dark:bg-gray-900/95
+                             text-gray-900 dark:text-gray-100
+                             border border-gray-200/80 dark:border-gray-800/80
+                             shadow-md hover:shadow-2xl hover:-translate-y-1.5
+                             transition-all duration-300 backdrop-blur"
                 >
                   <div className="icon-circle">
                     <info.icon className="w-6 h-6" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-primary">{info.title}</h4>
+                    <h4 className="font-semibold text-primary mb-0.5">{info.title}</h4>
                     {info.link ? (
-                      <a href={info.link} className="text-accent hover:text-primary">
+                      <a href={info.link} className="text-accent hover:text-primary transition-colors duration-200">
                         {info.value}
                       </a>
                     ) : (
@@ -168,24 +171,37 @@ const Contact = () => {
                 </div>
               ))}
             </div>
-
             <div className="flex space-x-4">
-              <a href="https://www.linkedin.com/in/tej-goti-1470b9288"
-                 target="_blank" rel="noopener noreferrer"
-                 className="icon-circle">LinkedIn</a>
+              <a
+                href="https://www.linkedin.com/in/tej-goti-1470b9288"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="icon-circle bg-white/90 dark:bg-gray-900/90 text-primary hover:bg-indigo-600 hover:text-white shadow-md hover:shadow-xl transition-all duration-300"
+              >
+                LinkedIn
+              </a>
 
-              <a href="https://github.com/tej789"
-                 target="_blank" rel="noopener noreferrer"
-                 className="icon-circle">GitHub</a>
+              <a
+                href="https://github.com/tej789"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="icon-circle bg-white/90 dark:bg-gray-900/90 text-primary hover:bg-gray-900 hover:text-white shadow-md hover:shadow-xl transition-all duration-300"
+              >
+                GitHub
+              </a>
 
-              <a href="mailto:gotitej2005@gmail.com"
-                 className="icon-circle">Email</a>
+              <a
+                href="mailto:gotitej2005@gmail.com"
+                className="icon-circle bg-white/90 dark:bg-gray-900/90 text-primary hover:bg-emerald-600 hover:text-white shadow-md hover:shadow-xl transition-all duration-300"
+              >
+                Email
+              </a>
             </div>
           </motion.div>
 
           {/* Form */}
           <motion.div variants={itemVariants} style={{ position: "relative", zIndex: 10 }}>
-            <div className="card p-8 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100">
+            <div className="card p-8 rounded-2xl border border-gray-200/80 dark:border-gray-800/80 bg-white/95 dark:bg-gray-900/95 text-gray-900 dark:text-gray-100 shadow-md hover:shadow-2xl transition-shadow duration-300 backdrop-blur">
               <h3 className="text-2xl font-bold text-primary mb-6">Send Message</h3>
 
               <form onSubmit={handleSubmit} className="space-y-6 relative z-10">

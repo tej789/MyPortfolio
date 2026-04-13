@@ -92,20 +92,20 @@ const Skills = () => {
             <motion.div
               key={categoryIndex}
               variants={itemVariants}
-              className="card"
+              className="group h-full rounded-2xl border border-gray-200/80 dark:border-gray-800/80 bg-white/95 dark:bg-gray-900/95 shadow-md hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300 p-6 backdrop-blur"
             >
               <h3 className="text-xl font-semibold text-primary mb-6 text-center">
                 {category.title}
               </h3>
-              <div className="space-y-4">
+              <div className="space-y-3">
                       {category.skills.map((skill, skillIndex) => (
                         <motion.div
                           key={skillIndex}
-                          whileHover={{ scale: 1.05 }}
-                          className={`skill-pill ${skill.color} transition-all duration-300`}
+                          whileHover={{ scale: 1.02 }}
+                          className={`skill-pill ${skill.color} transition-all duration-300 shadow-sm hover:shadow-md`}
                         >
-                          <span className="text-2xl">{skill.icon}</span>
-                          <span className="font-medium">{skill.name}</span>
+                          <span className="text-xl">{skill.icon}</span>
+                          <span className="font-medium text-sm md:text-base">{skill.name}</span>
                         </motion.div>
                       ))}
               </div>
@@ -119,10 +119,13 @@ const Skills = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.3 }}
-          className="mt-16 card p-8"
+          className="mt-16 rounded-2xl border border-gray-200/80 dark:border-gray-800/80 bg-white/95 dark:bg-gray-900/95 shadow-md hover:shadow-2xl transition-shadow duration-300 p-6 md:p-8 backdrop-blur"
         >
-          <h3 className="text-2xl font-bold text-primary mb-8 text-center">Proficiency Levels</h3>
-          <div className="grid md:grid-cols-2 gap-8">
+          <h3 className="text-2xl font-bold text-primary mb-6 text-center">Proficiency Levels</h3>
+          <p className="text-sm text-secondary text-center mb-8 max-w-2xl mx-auto">
+            A visual snapshot of the technologies I use most frequently and feel most confident working with day to day.
+          </p>
+          <div className="grid md:grid-cols-2 gap-6 md:gap-8">
             {[
               { skill: 'React.js', level: 90 },
               { skill: 'Node.js', level: 85 },
@@ -134,15 +137,15 @@ const Skills = () => {
               <div key={index} className="space-y-2">
                 <div className="flex justify-between items-center">
                   <span className="font-medium text-secondary">{item.skill}</span>
-                  <span className="text-sm text-secondary">{item.level}%</span>
+                  <span className="text-xs md:text-sm text-secondary font-medium">{item.level}%</span>
                 </div>
-                <div className="w-full progress-track rounded-full h-2">
+                <div className="w-full h-2 rounded-full bg-gray-200/80 dark:bg-gray-800/90 overflow-hidden">
                   <motion.div
                     initial={{ width: 0 }}
                     whileInView={{ width: `${item.level}%` }}
                     viewport={{ once: true }}
                     transition={{ duration: 1, delay: index * 0.1 }}
-                    className="progress-fill h-2 rounded-full"
+                    className="h-2 rounded-full bg-indigo-600 dark:bg-indigo-500"
                   />
                 </div>
               </div>
