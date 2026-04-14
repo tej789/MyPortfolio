@@ -161,11 +161,14 @@ const Contact = () => {
                   <div>
                     <h4 className="font-semibold text-primary mb-0.5">{info.title}</h4>
                     {info.link ? (
-                      <a href={info.link} className="text-accent hover:text-primary transition-colors duration-200">
+                      <a
+                        href={info.link}
+                        className="text-accent hover:text-primary transition-colors duration-200"
+                      >
                         {info.value}
                       </a>
                     ) : (
-                      <p className="text-secondary">{info.value}</p>
+                      <p className="text-accent">{info.value}</p>
                     )}
                   </div>
                 </div>
